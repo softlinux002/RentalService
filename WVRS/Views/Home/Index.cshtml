@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewBag.Title = "Whitechapel Vehicle Rental Service";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <div class="col-lg-12 col-sm-12 col-md-12 form-control page-header siteheader"><h4>Whitechapel Vehicle Rental Service</h4><span onclick="logout()" class="logout">Logout</span></div>
+    <div class="body-content">
+        <div class="row form-group">
+            <div class="panel-heading"><h4><b>Customer Information</b></h4></div><hr class="customline" />
+            <div class="panel-body">
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <select onchange="checkvalue()" id="type" class="form-control">
+                        <option>Tourist</option>
+                        <option>Travel Agency</option>
+                        <option>Private Company</option>
+                        <option>Individual</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 turind form-group">
+                    <input id="Name" type="text" placeholder="Full Name" class="form-control" />
+                    <span id="NameError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pricom form-group">
+                    <input id="CName" type="text" placeholder="Company Name" class="form-control" />
+                    <span id="CNameError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pricom form-group">
+                    <input id="CAddress" type="text" placeholder="Company Address" class="form-control" />
+                    <span id="CAddressError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 turind form-group">
+                    <input id="Dlicense" type="text" placeholder="Driving License" class="form-control" />
+                    <span id="DlicenseError"class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 turind form-group">
+                    <input id="Dob" type="date" placeholder="Date Of Birth" class="form-control" />
+                    <span id="DobError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 turind form-group">
+                    <input id="CDetail" type="text" placeholder="Emergency Contact Detail" class="form-control" />
+                    <span id="CDetailError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pricom form-group">
+                    <input id="CPerson" type="text" placeholder="Contact Person" class="form-control" />
+                    <span id="CPersonError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group floatleft">
+                    <textarea id="cntAddress" class="form-control" placeholder="Contact Address"></textarea>
+                    <span id="cntAddressError" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="panel-heading"><h4><b>Vehicle Information</b></h4></div><hr class="customline" />
+            <div class="panel-body">
+                 <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <input id="startDate" onchange="startDate()" min="currentdate" type="date" placeholder="Select Date" class="form-control mindate" />
+                    <span id="startDateError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <input id="endDate" type="date" placeholder="Select Date" class="form-control mindate maxdate" />
+                    <span id="endDateError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <select onchange="getVehicleInfoChange();getVehicleInfoChange()" id="Vehicle" class="form-control">
+                        <option>Select Vehicle</option>
+                        <option>Bike</option>
+                        <option>Car</option>
+                        <option>Mini Bus 9/10 seats</option>
+                        <option>Mini Bus 15 seats</option>
+                        <option>Mini Bus 20 seats</option>
+                        <option>Van Small</option>
+                        <option>Van Big</option>
+                    </select>
+                    <span id="VehicleError" class="text-danger"></span>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <select onchange="getVehicleInfo()" id="Gearbox" class="form-control">
+                        <option>Select Gearbox</option>
+                        <option>Automatic/Semi-automatic</option>
+                        <option>Manual</option>
+                    </select>
+                    <span id="GearboxError" class="text-danger"></span>
+                </div>
+                <div onchange="getVehicleInfo()" class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <select id="FuelType" class="form-control">
+                        <option>Select Fuel Type</option>
+                        <option>Petrol</option>
+                        <option>Diesel</option>
+                        <option>Electric</option>
+                        <option>Hybrid</option>
+                    </select>
+                    <span id="FuelTypeError" class="text-danger"></span>
+                </div>
+                <div onchange="getVehicleInfo()" class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <select id="color" class="form-control">
+                        <option>Select Color</option>
+                        <option>Black</option>
+                        <option>White</option>
+                    </select>
+                    <span id="colorError" class="text-danger"></span>
+                </div>
+                <div onchange="getVehicleInfo()" class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <select id="Model" class="form-control">
+                    </select>
+                    <span id="ModelError" class="text-danger"></span>
+                </div>
+                <div onchange="getVehicleInfo()" class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <select id="Make" class="form-control">
+                    </select>
+                    <span id="MakeError" class="text-danger"></span>
+                </div>
+                 <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <input disabled type="text" id="regnum" placeholder="Registration Number" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <input disabled type="text" id="ensize" placeholder="Engine Size" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <input disabled type="text" id="mileage" placeholder="Current mileage" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <input disabled type="text" id="doors" placeholder="Number of doors" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <input disabled type="text" id="lastService" placeholder="Last service date" class="form-control" />
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 form-group">
+                    <input disabled type="text" id="dimention" placeholder="Dimention (Height*Width*Length)" class="form-control" />
+                </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12 form-group floatleft">
+                    <textarea disabled id="safetyInfo" class="form-control" placeholder="Safety Information"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-offset-3 col-lg-3 col-md-6 col-sm-12 form-group">
+                <button id="submit" onclick="SaveData()" class="btn btn-primary">Submit</button>
+            </div>
+            <div id="cancel" class="col-lg-3 col-md-6 col-sm-12 form-group hide">
+                <button  onclick="CancelData()" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel-heading"><h4><b>Customer List</b></h4></div><hr class="customline" />
+            <div class="panel-body">
+                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                    <table class="UserInfo">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Name/CompanyName</th>
+                                <th>Driving License</th>
+                                <th>DOB</th>
+                                <th>Contact Detail/Contact Person</th>
+                                <th>Contact Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade  modal-sm" id="Notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div id="message" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary col-md-3" onclick="closepopup()">Close</button>
+                <button id="delete" onclick="deleteUserInfo()" type="button" class="btn btn-primary hide col-md-3">Delete</button>
+                <input type="hidden" id="userid"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="showReceipt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Receipt</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="message" class="modal-body">
+                <div id="individualDetail">
+                    <div class="row">
+                        <table>
+                            <tbody>
+                                <tr><td>Name</td><td class="setwidth100" id="RName"></td></tr>
+                                <tr><td>Address</td><td class="setwidth100" id="RAddress"></td></tr>
+                                <tr><td>Vehicle Type</td><td class="setwidth100" id="RType"></td></tr>
+                                <tr><td>No of days</td><td class="setwidth100" id="RDays"></td></tr>
+                                <tr><td>Rate(Per day)</td><td class="setwidth100" id="RRate"></td></tr>
+                                <tr><td>Amount</td><td class="setwidth100" id="RAmount"></td></tr>
+                                <tr><td>Vat (15%)</td><td class="setwidth100" id="RVat"></td></tr>
+                                <tr><td>Damage Repair Cost (10%) </td><td class="setwidth100" id="Rdrc"></td></tr>
+                                <tr><td>Total due amount</td><td class="setwidth100" id="RDueAmount"></td></tr>
+                                <tr><td>Payment Method</td><td class="setwidth100" id="RPMethod"></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="CompanyDetail">
+                    <div class="row">
+                        <table>
+                            <tbody>
+                                <tr><td>No of vehicles</td><td class="setwidth100" id="RNumber1"></td></tr>
+                                <tr><td>Vehicle Type</td><td class="setwidth100" id="RType1"></td></tr>
+                                <tr><td>No of days</td><td class="setwidth100" id="RDays1"></td></tr>
+                                <tr><td>Rate(Per day)</td><td class="setwidth100" id="RRate1"></td></tr>
+                                <tr><td>Amount</td><td class="setwidth100" id="RAmount1"></td></tr>
+                                <tr><td>Vat (15%)</td><td class="setwidth100" id="RVat1"></td></tr>
+                                <tr><td>Total due amount</td><td class="setwidth100" id="RDueAmount1"></td></tr>
+                                <tr><td>Payment Method</td><td class="setwidth100" id="RPMethod1"></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary col-md-3" data-dismiss="modal">Close</button>
+                <button id="btnPrint" onclick="PrintDetail()" type="button" class="btn btn-primary col-md-3">Print</button>
+                <input type="hidden" id="userTypeValue" />
+            </div>
+        </div>
+    </div>
+</div>

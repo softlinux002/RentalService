@@ -1,0 +1,122 @@
+﻿body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+
+.background {
+    height: 600px;
+    background: url("/images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.loginView {
+    
+    width: 25%;
+    float: right;
+    margin-top: 3%;
+    margin-right: 10%;
+}
+.detail{
+    padding:5px;
+}
+
+.detail input,button {
+    width : 100%;
+}
+
+.siteheader {
+    text-align: center;
+    height: 50px !important;
+    background: #9898a7 !important;
+    color: white !important;
+    margin: 15px 0 !important;
+}
+
+.UserInfo{
+    width : 100% !important; 
+}
+
+.UserInfo tr,th,td{
+    border:1px solid;
+    text-align:center !important;
+}   
+
+.customline {
+    margin: 0 15px;
+    border-top: 1px solid #9898a7;
+}
+
+.floatleft{
+    float:left;
+    width:100%
+}
+
+.logout {
+    position: absolute;
+    right: 20px;
+    top: 17px;
+    cursor:pointer;
+}
+
+.loginheader {
+    text-align: center;
+    height: 50px !important;
+    color: black !important;
+    text-decoration:underline;
+    margin:0;
+    color:white;
+}
+
+.distance{
+    padding-left:10px;
+    cursor:pointer;
+}
+
+#showReceipt .modal-dialog{
+    width : 300px;
+}
+
+.setfield {
+    padding: 2px 5px;
+}
+
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #printSection, #printSection * {
+        visibility: visible;
+    }
+
+    #printSection {
+        position: absolute;
+        left: 250px;
+        top: 0;
+        font-size:24px;
+
+    }
+}
+
+#individualDetail, #CompanyDetail {
+    margin-left: 30px;
+}
+
+.setwidth100{
+    width:100px;
+}
